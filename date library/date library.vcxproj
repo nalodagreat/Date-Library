@@ -124,7 +124,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="date library.cpp" />
-    <ClCompile Include="Date.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Date.h" />
