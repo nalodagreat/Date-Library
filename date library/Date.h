@@ -21,11 +21,11 @@ public:
 	{
 		return day;
 	}
-	short getMonth()
+	short getmonth()
 	{
 		return month;
 	}
-	short getYear()
+	short getyear()
 	{
 		return year;
 	}
@@ -33,11 +33,11 @@ public:
 	{
 		this->day = day;
 	}
-	void setMonth(short month)
+	void setmonth(short month)
 	{
 		this->month = month;
 	}
-	void setYear(short year)
+	void setyear(short year)
 	{
 		this->year = year;
 	}
@@ -76,5 +76,23 @@ public:
 		systemDate.year = now.tm_year + 1900;
 		return systemDate;
 	}
+	static bool Isdate1Beforedate2(Date date1, Date date2)
+	{
+		return (date1.year < date2.year)
+			? true
+			: ((date1.year == date2.year)
+				? (date1.month < date2.month
+					? true
+					: (date1.month == date2.month
+						? date1.day < date2.day
+						: false))
+				: false);
+	}
+	bool IsDateBeforeDate2(Date date2)
+	{ 
+		//note: *this sends the current object :-)
+		return  Isdate1Beforedate2(*this, date2);
+	}
+
 };
 
