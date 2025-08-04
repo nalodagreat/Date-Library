@@ -136,8 +136,8 @@ public:
 	}
 	Date DecreaseDateByOneYear()
 	{
-		DecreaseDateByOneYear(*this);
+		return DecreaseDateByOneYear(*this);
 	}
-	/////////////777erty
+	
 };
 
