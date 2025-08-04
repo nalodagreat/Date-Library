@@ -93,6 +93,14 @@ public:
 		//note: *this sends the current object :-)
 		return  Isdate1Beforedate2(*this, date2);
 	}
-
+	static bool isLeapYear(short year) 
+	{
+		// if year is divisible by 4 AND not divisible by 100// OR if year is divisible by 400// then it is a leap year 
+		return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);  
+	}
+	bool isLeapYear()
+	{
+		isLeapYear(year);
+	}
 };
 
