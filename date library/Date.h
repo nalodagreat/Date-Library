@@ -118,7 +118,26 @@ public:
 	{
 		return numberOfHoursInAYear(year);
 	}
-	
-	
+	static short numberOfDaysInAMonth(short month,int year)
+	{
+		if (month < 1 || month>12)
+			return  0; 
+		int days[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 }; 
+		return (month == 2) ? (isLeapYear(year) ? 29 : 28) : days[month - 1];
+	}
+	short numberOfDaysInAMonth()
+	{
+		return numberOfDaysInAMonth(month, year);
+	}
+	static Date DecreaseDateByOneYear(Date date) 
+	{ 
+		date.year--; 
+		return date; 
+	}
+	Date DecreaseDateByOneYear()
+	{
+		DecreaseDateByOneYear(*this);
+	}
+	/////////////777erty
 };
 
