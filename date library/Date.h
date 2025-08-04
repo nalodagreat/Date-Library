@@ -100,7 +100,25 @@ public:
 	}
 	bool isLeapYear()
 	{
-		isLeapYear(year);
+		return isLeapYear(year);
 	}
+	static short numberOfDaysInAYear(short year)
+	{
+		return  isLeapYear(year) ? 365 : 364;
+	}
+	short numberOfDaysInAYear()
+	{
+		return  numberOfDaysInAYear(year);
+	}
+	static short numberOfHoursInAYear(short year)
+	{
+		return numberOfDaysInAYear(year) * 24;
+	}
+	short numberOfHoursInAYear()
+	{
+		return numberOfHoursInAYear(year);
+	}
+	
+	
 };
 
