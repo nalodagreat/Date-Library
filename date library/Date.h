@@ -138,6 +138,43 @@ public:
 	{
 		return DecreaseDateByOneYear(*this);
 	}
-	
+	Date addDaysToDate(int daysToAdd) 
+	{
+		Date result = *this;
+
+		while (daysToAdd > 0) 
+		{
+			short daysInMonth = numberOfDaysInAMonth(result.month, result.year);
+
+			if (result.day + daysToAdd <= daysInMonth) 
+			{
+				result.day += daysToAdd;
+				break;
+			}
+			else 
+			{
+				daysToAdd -= (daysInMonth - result.day + 1);
+				result.day = 1;
+
+				if (result.month == 12) 
+				{
+					result.month = 1;
+					result.year++;
+				}
+				else
+				{
+					result.month++;
+				}
+			}
+		}
+
+		return result;
+	}
+	bool isEndOfMonth() 
+	{
+		return day == numberOfDaysInAMonth(month, year);
+	}
+
+
 };
 
