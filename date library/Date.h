@@ -59,5 +59,22 @@ public:
 	{
 		return dateTostring(*this);
 	}
+	struct systemDate
+	{
+		short day;
+		short month;
+		short year;
+	};
+	static systemDate getSystemDate()
+	{
+		systemDate systemDate;
+		time_t t = time(0);
+		tm now = {};
+		localtime_s(&now, &t);
+		systemDate.day = now.tm_mday;
+		systemDate.month = now.tm_mon + 1;
+		systemDate.year = now.tm_year + 1900;
+		return systemDate;
+	}
 };
 
